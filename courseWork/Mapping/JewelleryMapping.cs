@@ -4,11 +4,12 @@ using courseWork.Entity;
 
 namespace courseWork.Mapping
 {
-    public class JewelleryMapping : Profile 
+    public class Mapping : Profile 
     {
-        public JewelleryMapping()
+        public Mapping()
         {
             CreateMap<JewelleryDto, JewelleryEntity>().ReverseMap();
+            CreateMap<ClientDto, ClientEntity>().ReverseMap();
         }
     }
 }
