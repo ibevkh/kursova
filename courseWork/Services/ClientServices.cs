@@ -8,8 +8,8 @@ namespace courseWork.Services
     public class ClientServices : IClientServices
     {
         private readonly IMapper _mapper;
-        private readonly ClientContext _db;
-        public ClientServices(IMapper mapper, ClientContext db)
+        private readonly JewelleryContext _db;
+        public ClientServices(IMapper mapper, JewelleryContext db)
         {
             _mapper = mapper;
             _db = db;
@@ -17,12 +17,12 @@ namespace courseWork.Services
 
         public List<ClientDto> GetClients()
         {
-            return _mapper.Map<List<ClientDto>>(_db.ClientDb.ToList());
+            return _mapper.Map<List<ClientDto>>(_db.ClientDB.ToList());
         }
 
         public ClientDto AddClient(ClientDto client)
         {
-            var newClient = _db.ClientDb.Add(_mapper.Map<ClientEntity>(client));
+            var newClient = _db.ClientDB.Add(_mapper.Map<ClientEntity>(client));
             _db.SaveChanges();
             return _mapper.Map<ClientDto>(client);
         }

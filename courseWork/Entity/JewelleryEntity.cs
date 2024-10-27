@@ -8,7 +8,7 @@
         public string Material { get; set; }
         public string Gemstones { get; set; }
         public int Size { get; set; }
-
         public int Price { get; set; }
+        public List<BasketEntity>Baskets { get; set; }
     }
 }

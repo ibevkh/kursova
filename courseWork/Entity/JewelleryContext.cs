@@ -7,9 +7,14 @@ namespace courseWork.Entity
         public JewelleryContext(DbContextOptions<JewelleryContext> options) : base(options) { }
         
         public DbSet<JewelleryEntity> JewelleryDB { get; set; }
+        public DbSet<ClientEntity> ClientDB { get; set; }
+        public DbSet<BasketEntity> BasketDB { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<JewelleryEntity>()
+            //    .HasMany(c => c.Baskets)
+            //    .WithMany(c => c.Jewelleries).
             modelBuilder.Entity<JewelleryEntity>().HasData(new JewelleryEntity()
             {
                 Id = 1,
