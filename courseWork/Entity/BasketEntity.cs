@@ -5,6 +5,6 @@
         public int Id { get; set; }
         public int Quantity { get; set; }
         public List<JewelleryEntity> Jewelleries { get; set; }
-        public ClientEntity Client { get; set; }
+        public List<OrderEntity> Orders { get; set; }
     }
 }

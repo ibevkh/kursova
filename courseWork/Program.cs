@@ -21,6 +21,8 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddScoped<IJewelleryService, JewelleryService>();
+builder.Services.AddScoped<IClientServices, ClientServices>();
+
 
 builder.Services.AddDbContext<JewelleryContext>(opt =>
 {

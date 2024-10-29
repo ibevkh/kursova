@@ -9,6 +9,6 @@
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
-        public List<BasketEntity> Baskets { get; set; }
+        public List<OrderEntity> Orders { get; set; }
     }
 }
