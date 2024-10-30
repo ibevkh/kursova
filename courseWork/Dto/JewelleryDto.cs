@@ -1,8 +1,10 @@
-﻿namespace courseWork.Dto
+﻿using courseWork.Entity;
+
+namespace courseWork.Dto
 {
     public class JewelleryDto
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public string Material { get; set; }

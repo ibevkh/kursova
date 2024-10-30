@@ -1,6 +1,6 @@
 ﻿using courseWork.Dto;
 
-namespace courseWork.Services
+namespace courseWork.Services.Contracts
 {
     public interface IJewelleryService
     {

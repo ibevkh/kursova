@@ -8,8 +8,12 @@ namespace courseWork.Mapping
     {
         public Mapping()
         {
-            CreateMap<JewelleryDto, JewelleryEntity>().ReverseMap();
-            CreateMap<ClientDto, ClientEntity>().ReverseMap();
+            CreateMap<JewelleryDto, Jewellery>().ReverseMap();
+            CreateMap<OrderJewelleryItemDto, Jewellery>();
+
+            CreateMap<CustomerDto, Customer>()
+                .ForMember(d => d.Id, opt => opt.Ignore())
+                .ReverseMap();
         }
     }
 }

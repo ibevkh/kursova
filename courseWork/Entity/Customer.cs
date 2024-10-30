@@ -1,6 +1,6 @@
-﻿namespace courseWork.Dto
+﻿namespace courseWork.Entity
 {
-    public class ClientDto
+    public class Customer
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -9,5 +9,6 @@
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
+        public ICollection<Order> Order { get; set; }
     }
 }

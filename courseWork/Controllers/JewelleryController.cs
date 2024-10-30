@@ -1,5 +1,5 @@
 using courseWork.Dto;
-using courseWork.Services;
+using courseWork.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace courseWork.Controllers

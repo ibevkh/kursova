@@ -1,6 +1,8 @@
-﻿namespace courseWork.Entity
+﻿using courseWork.Entity;
+
+namespace courseWork.Dto
 {
-    public class ClientEntity
+    public class CustomerDto
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -9,6 +11,5 @@
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
-        public List<OrderEntity> Orders { get; set; }
     }
 }

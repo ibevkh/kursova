@@ -1,5 +1,6 @@
 using courseWork.Entity;
 using courseWork.Services;
+using courseWork.Services.Contracts;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +22,7 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddScoped<IJewelleryService, JewelleryService>();
-builder.Services.AddScoped<IClientServices, ClientServices>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 
 builder.Services.AddDbContext<JewelleryContext>(opt =>
