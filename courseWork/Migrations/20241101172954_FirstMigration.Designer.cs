@@ -11,8 +11,8 @@ using courseWork.Entity;
 namespace courseWork.Migrations
 {
     [DbContext(typeof(JewelleryContext))]
-    [Migration("20241029175328_Initial")]
-    partial class Initial
+    [Migration("20241101172954_FirstMigration")]
+    partial class FirstMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -131,7 +131,7 @@ namespace courseWork.Migrations
 
                     b.HasIndex("JewelleryId");
 
-                    b.ToTable("OderJewelleries");
+                    b.ToTable("OrderJewelleries");
                 });
 
             modelBuilder.Entity("courseWork.Entity.Order", b =>

@@ -4,10 +4,10 @@ namespace courseWork.Services.Contracts
 {
     public interface IJewelleryService
     {
-        public List<JewelleryDto> GetJewellery();
-        public JewelleryDto GetOneJewellery(int id);
-        public JewelleryDto AddJewellery(JewelleryDto jewellery);
-        public bool RemoveJewellery(int id);
-        public void UpdateJewellery(JewelleryDto jewellery);
+        Task<List<JewelleryDto>> GetJewelleryAsync();
+        Task<JewelleryDto> GetOneJewelleryAsync(int id);
+        Task<JewelleryDto> AddJewelleryAsync(JewelleryDto jewellery);
+        Task<bool> RemoveJewelleryAsync(int id);
+        Task<JewelleryDto> UpdateJewelleryAsync(JewelleryDto jewellery);
     }
 }

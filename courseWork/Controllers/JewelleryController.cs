@@ -1,4 +1,6 @@
 using courseWork.Dto;
+using courseWork.Entity;
+using courseWork.Services;
 using courseWork.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,15 +18,15 @@ namespace courseWork.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<JewelleryDto>> GetJewellery()
+        public async Task<ActionResult<List<JewelleryDto>>> GetJewellery()
         {
-            return Ok(_jewelleryService.GetJewellery());
+            return Ok(await _jewelleryService.GetJewelleryAsync());
         }
 
         [HttpGet ("{id}")]
-        public ActionResult<JewelleryDto> GetOneJewellery(int id) 
+        public async Task<ActionResult<JewelleryDto>> GetOneJewellery(int id) 
         {
-            var jewellery = _jewelleryService.GetOneJewellery(id);
+            var jewellery = await _jewelleryService.GetOneJewelleryAsync(id);
             if (jewellery != null)
             {
                 return Ok(jewellery);
@@ -33,25 +35,23 @@ namespace courseWork.Controllers
         }
 
         [HttpPost]
-        public ActionResult<JewelleryDto> AddJewellery(JewelleryDto jewellery)
+        public async Task<ActionResult<JewelleryDto>> AddJewellery(JewelleryDto jewellery)
         {
-            return Ok(_jewelleryService.AddJewellery(jewellery));
+            return Ok( await _jewelleryService.AddJewelleryAsync(jewellery));
         }
 
         [HttpDelete]
-        public ActionResult<bool> RemoveJewellery(int id)
+        public async Task<ActionResult<bool>> RemoveJewellery(int id)
         {
-            return Ok(_jewelleryService?.RemoveJewellery(id));
+            return Ok(await _jewelleryService?.RemoveJewelleryAsync(id));
         }
 
         [HttpPut]
-        public ActionResult<JewelleryDto> UpdateJewellery(JewelleryDto jewellery)
+        public async Task<ActionResult<JewelleryDto>> UpdateJewellery(JewelleryDto jewellery)
         {
             try
             {
-                _jewelleryService.UpdateJewellery(jewellery);
-
-                return Ok(jewellery);
+                return Ok(await _jewelleryService.UpdateJewelleryAsync(jewellery));
             }
             catch
             {

@@ -128,7 +128,7 @@ namespace courseWork.Migrations
 
                     b.HasIndex("JewelleryId");
 
-                    b.ToTable("OderJewelleries");
+                    b.ToTable("OrderJewelleries");
                 });
 
             modelBuilder.Entity("courseWork.Entity.Order", b =>

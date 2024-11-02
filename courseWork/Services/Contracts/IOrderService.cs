@@ -4,8 +4,8 @@ namespace courseWork.Services.Contracts
 {
     public interface IOrderService
     {
-        public List<OrderDto> GetOrdersAsync();
-        public OrderDto GetOrderByIdAsync(int id);
-        public OrderDto AddOrderAsync(OrderDto jewellery);
+        Task<List<OrderDto>> GetOrdersAsync();
+        Task<OrderDto> GetOrderByIdAsync(int id);
+        Task<OrderDto> AddOrderAsync(OrderDto jewellery);
     }
 }

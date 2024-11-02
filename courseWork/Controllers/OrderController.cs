@@ -16,15 +16,18 @@ namespace courseWork.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<OrderDto>> GetOrders()
+        public async Task<ActionResult<List<OrderDto>>> GetOrders()
         {
-            return Ok(_orderService.GetOrdersAsync());
+            var orders = await _orderService.GetOrdersAsync();
+            return Ok(orders);
         }
 
         [HttpPost]
-        public ActionResult<OrderDto> AddOrder(OrderDto order)
+        public async Task<ActionResult<OrderDto>> AddOrder(OrderDto order)
         {
-            return Ok(_orderService.AddOrderAsync(order));
+            var createdOrder = await _orderService.AddOrderAsync(order);
+            return Ok(createdOrder);
         }
     }
+
 }

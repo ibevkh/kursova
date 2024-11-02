@@ -5,7 +5,7 @@
 namespace courseWork.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class FirstMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -66,7 +66,7 @@ namespace courseWork.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OderJewelleries",
+                name: "OrderJewelleries",
                 columns: table => new
                 {
                     OrderId = table.Column<int>(type: "int", nullable: false),
@@ -75,15 +75,15 @@ namespace courseWork.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OderJewelleries", x => new { x.OrderId, x.JewelleryId });
+                    table.PrimaryKey("PK_OrderJewelleries", x => new { x.OrderId, x.JewelleryId });
                     table.ForeignKey(
-                        name: "FK_OderJewelleries_Jewelleries_JewelleryId",
+                        name: "FK_OrderJewelleries_Jewelleries_JewelleryId",
                         column: x => x.JewelleryId,
                         principalTable: "Jewelleries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OderJewelleries_Orders_OrderId",
+                        name: "FK_OrderJewelleries_Orders_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Orders",
                         principalColumn: "Id",
@@ -96,8 +96,8 @@ namespace courseWork.Migrations
                 values: new object[] { 1, "Test1", "Test1", "Test1", 0, 0, "Test1" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_OderJewelleries_JewelleryId",
-                table: "OderJewelleries",
+                name: "IX_OrderJewelleries_JewelleryId",
+                table: "OrderJewelleries",
                 column: "JewelleryId");
 
             migrationBuilder.CreateIndex(
@@ -110,7 +110,7 @@ namespace courseWork.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "OderJewelleries");
+                name: "OrderJewelleries");
 
             migrationBuilder.DropTable(
                 name: "Jewelleries");

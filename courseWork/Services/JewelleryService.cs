@@ -16,39 +16,45 @@ namespace courseWork.Services
             _mapper = mapper;
             _db = db;
         }
+        public async Task<List<JewelleryDto>> GetJewelleryAsync()
+        {
+            var jewelleries = await _db.Jewelleries.ToListAsync();
+            return _mapper.Map<List<JewelleryDto>>(jewelleries);
+        }
 
-        public List<JewelleryDto> GetJewellery()
+        public async Task<JewelleryDto> GetOneJewelleryAsync(int id)
         {
-            return _mapper.Map<List<JewelleryDto>>(_db.Jewelleries.ToList());
+            var jewellery = await _db.Jewelleries.FirstOrDefaultAsync(x => x.Id == id);
+            return _mapper.Map<JewelleryDto>(jewellery);
         }
-        public JewelleryDto GetOneJewellery(int id)
+
+        public async Task<JewelleryDto> AddJewelleryAsync(JewelleryDto jewellery)
         {
-            return _mapper.Map<JewelleryDto>(_db.Jewelleries.FirstOrDefault(x => x.Id == id));
-        }
-        public JewelleryDto AddJewellery(JewelleryDto jewellery)
-        {
-            var newJewellery = _db.Jewelleries.Add(_mapper.Map<Jewellery>(jewellery)).Entity;
-            _db.SaveChanges();
+            var newJewellery = (await _db.Jewelleries.AddAsync(_mapper.Map<Jewellery>(jewellery))).Entity;
+            await _db.SaveChangesAsync();
 
             return _mapper.Map<JewelleryDto>(newJewellery);
         }
-        public bool RemoveJewellery(int id)
+
+        public async Task<bool> RemoveJewelleryAsync(int id)
         {
-            var removeJewellery = _db.Jewelleries.FirstOrDefault(j => j.Id == id);
+            var removeJewellery = await _db.Jewelleries.FirstOrDefaultAsync(j => j.Id == id);
             if (removeJewellery != null)
             {
-                _db.Remove(removeJewellery);
-                _db.SaveChanges();
+                _db.Jewelleries.Remove(removeJewellery);
+                await _db.SaveChangesAsync();
 
                 return true;
             }
-            return false; 
+            return false;
         }
-        public void UpdateJewellery(JewelleryDto jewellery)
+
+        public async Task<JewelleryDto> UpdateJewelleryAsync(JewelleryDto jewellery)
         {
             var jewelleryToUpdate = _mapper.Map<Jewellery>(jewellery);
             _db.Jewelleries.Update(jewelleryToUpdate);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
+            return _mapper.Map<JewelleryDto>(jewelleryToUpdate);
         }
     }
 }

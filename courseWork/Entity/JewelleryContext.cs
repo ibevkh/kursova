@@ -8,7 +8,7 @@ namespace courseWork.Entity
         
         public DbSet<Order> Orders { get; set; }
         public DbSet<Jewellery> Jewelleries { get; set; }
-        public DbSet<OrderJewelleries> OderJewelleries{ get; set; }
+        public DbSet<OrderJewelleries> OrderJewelleries{ get; set; }
         public DbSet<Customer> Customers { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
