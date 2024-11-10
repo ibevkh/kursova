@@ -16,9 +16,6 @@ namespace courseWork.Entity
             modelBuilder.Entity<OrderJewelleries>()
                 .HasKey(x => new { x.OrderId, x.JewelleryId });
 
-            //modelBuilder.Entity<JewelleryEntity>()
-            //    .HasMany(c => c.Baskets)
-            //    .WithMany(c => c.Jewelleries).
             modelBuilder.Entity<Jewellery>().HasData(new Jewellery()
             {
                 Id = 1,
